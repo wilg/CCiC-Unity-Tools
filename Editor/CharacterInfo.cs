@@ -1,4 +1,4 @@
-﻿/* 
+/* 
  * Copyright (C) 2021 Victor Soupday
  * This file is part of CC_Unity_Tools <https://github.com/soupday/CC_Unity_Tools>
  * 
@@ -633,7 +633,7 @@ namespace Reallusion.Import
             // instalod will generate unique suffixes _0/_1/_2 on character objects where object names and container
             // transforms have the same name, try to untangle the object name by speculatively removing this suffix.
             // (seems to happen mostly on accessories)
-            if (objName[objName.Length - 2] == '_' && char.IsDigit(objName[objName.Length - 1]))
+            if (objName.Length >= 2 && objName[objName.Length - 2] == '_' && char.IsDigit(objName[objName.Length - 1]))
             {
                 Util.LogWarn("Object name " + objName + " may be incorrectly suffixed by InstaLod exporter. Attempting to untangle...");
                 tryObjectNames.Add(objName.Substring(0, objName.Length - 2));
@@ -698,7 +698,7 @@ namespace Reallusion.Import
             // instalod will generate unique suffixes _0/_1/_2 on character objects where object names and container
             // transforms have the same name, try to untangle the object name by speculatively removing this suffix.
             // (seems to happen mostly on accessories)
-            if (objName[objName.Length - 2] == '_' && char.IsDigit(objName[objName.Length - 1]))
+            if (objName.Length >= 2 && objName[objName.Length - 2] == '_' && char.IsDigit(objName[objName.Length - 1]))
             {
                 Util.LogWarn("Object name " + objName + " may be incorrectly suffixed by InstaLod exporter. Attempting to untangle...");
                 tryObjectNames.Add(objName.Substring(0, objName.Length - 2));
@@ -706,7 +706,7 @@ namespace Reallusion.Import
                 //realObjName = objectsData.FindKeyName(specObjName);
             }
 
-            if (sourceName[sourceName.Length - 2] == '_' && char.IsDigit(sourceName[sourceName.Length - 1]))
+            if (sourceName.Length >= 2 && sourceName[sourceName.Length - 2] == '_' && char.IsDigit(sourceName[sourceName.Length - 1]))
             {
                 Util.LogWarn("Material name " + sourceName + " may be incorrectly suffixed by InstaLod exporter. Attempting to untangle...");
                 tryMaterialNames.Add(sourceName.Substring(0, sourceName.Length - 2));
