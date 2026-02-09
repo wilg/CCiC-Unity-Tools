@@ -675,7 +675,7 @@ namespace Reallusion.Import
             List<string> tryObjectNames = new List<string>();
             tryMaterialNames.Add(sourceName);
 
-            if (sourceName[sourceName.Length - 2] == ' ' && char.IsDigit(sourceName[sourceName.Length - 1]))
+            if (sourceName.Length >= 2 && sourceName[sourceName.Length - 2] == ' ' && char.IsDigit(sourceName[sourceName.Length - 1]))
             {
                 Util.LogWarn("Material name has a Unity duplication suffix, there may be more than one material with this name in the character.");
                 tryMaterialNames.Add(sourceName.Substring(0, sourceName.Length - 2));
